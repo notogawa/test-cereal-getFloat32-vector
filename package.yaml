@@ -1,0 +1,69 @@
+name:                test-cereal-getFloat32-vector
+version:             0.1.0.0
+github:              "githubuser/test-cereal-getFloat32-vector"
+license:             BSD3
+author:              "Noriyuki OHKAWA"
+maintainer:          "n.ohkawa@gmail.com"
+copyright:           "2018 Noriyuki OHKAWA"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/test-cereal-getFloat32-vector#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- cereal
+- vector
+- bytestring
+
+library:
+  source-dirs: src
+
+executables:
+  putter:
+    main:                Main.hs
+    source-dirs:         putter
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - test-cereal-getFloat32-vector
+  naive-getter:
+    main:                Main.hs
+    source-dirs:         naive-getter
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - test-cereal-getFloat32-vector
+  revised-getter:
+    main:                Main.hs
+    source-dirs:         revised-getter
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - test-cereal-getFloat32-vector
+
+tests:
+  test-cereal-getFloat32-vector-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - test-cereal-getFloat32-vector
